@@ -5,12 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hello</title>
 </head>
-<body style="color:red">
+<body id="flicker" style="font-family: Gulim;">
     <h1>집에가고싶다아ㅣ아아아아아ㄱ</h1>
     <h2>집집</h2>
     <h3>집집집</h3>
     <h4>집4</h4>
     <h5>다섯개</h5>
     <h6>작아진다</h6>
+    <br>
+    <br>
+    <h1>섯다</h1>
+    <h2>룰</h2>
+    <p>와 도박!</p>
+    <h2>카드수</h2>
+    <p>화투패에서 11월, 12월, 피를 제외한 20장을 사용한다.</p>
+    <h2>특수족보</h2>
+    <pre>망통은 무조건 진다
+암행어사는 13, 18장땡을 잡는다</pre>
+
 </body>
 </html>
+
+<script>
+    window.onload = function() {
+        var flicker = document.getElementById("flicker");
+        //red();
+    }
+
+    function red(){
+        flicker.style.color = "red";
+        setTimeout(orange, 400);
+    }
+    function orange(){
+        flicker.style.color = "orange";
+        setTimeout(red, 400);
+    }
+</script>
