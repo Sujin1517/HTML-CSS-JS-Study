@@ -1,0 +1,80 @@
+hr{
+    border: 1px solid LightPink;
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+.p1{
+    margin: 0px;
+    width: auto;
+    height: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    animation: spring 1s ease-in-out infinite alternate;
+}
+@keyframes spring{
+    0% {color: rgb(255, 172, 184);}
+    100% {color: Pink; transform: scale(1.1);}
+}
+
+.p2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 24pt;
+    color: rgb(138, 0, 46);
+    letter-spacing: 10pt;
+}
+
+.img1{
+    width: 140px;
+    height: auto;
+    max-height: 225px;
+    padding: auto;
+    border-radius: 8px;
+}
+
+.div1{
+    background-color: white;
+    border: 2px solid PaleVioletRed;
+    border-top-right-radius: 14px;
+    width: 140px;
+    height: fit-content;
+    display: block;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    transition: all 0.25s ease-in-out;
+    
+}
+.div1:hover{
+    transform: scale(1.2);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.div2{
+    /* background-image: url("https://m.segye.com/content/image/2022/04/12/20220412511975.jpg"); */
+    background-color: rgb(255, 240, 245);
+    padding: 10px;
+    width: 98vw;
+
+    /* border: 1px solid black; */
+}
+.div3{
+    backdrop-filter: blur(5px) brightness(90%);
+    border-radius: 30px;
+    padding: 20px;
+    margin: 0px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+.div1:nth-child(3){
+    /* flex: 3; */
+}
