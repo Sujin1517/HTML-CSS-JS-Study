@@ -1,0 +1,20 @@
+div {
+    padding: 5px;
+    margin: 5px;
+    width: 100px;
+    /* height: 100px; */
+    color :white;
+    background-color: blueviolet;
+}
+p{
+    margin: 0px;
+}
+#box{
+    width: 200px;
+    min-height: 100px;
+}
+.box{
+    width: 95vw;
+    height: 10em;
+    border-radius: 10px;
+}
