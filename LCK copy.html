@@ -12,9 +12,12 @@
             margin: auto;
         }
         tr, td, th{
-            padding: 4px;
             border: 1px solid #bbbbbb;
             text-align: center;
+        }
+        tr, td, th{
+            padding: 4px;
+            /* background-color: darkslategrey; */
         }
         th{
             padding: 6px;
@@ -25,16 +28,52 @@
             width: 20px;
             height: 20px;
         }
-        .bc{background-color: #adf;}
-        .gc{background-color: #97ecab;}
-        .yc{background-color: #ff9;}
-        a{text-decoration-line: none;}
-
-        /* tr td:nth-child(3){
-            color: blue;
-        } */
-        tr td a{
-            color: blue;
+        .bc{
+            background-color: #adf;
+        }
+        .gc{
+            background-color: #97ecab;
+        }
+        .yc{
+            background-color: #ff9;;
+        }
+        a{
+            text-decoration-line: none;
+        }
+        #flicker{
+            animation: lkf 1s ease-in-out infinite alternate;
+        }
+        @keyframes lkf{
+            0% { font-size: 15pt; }
+            100% { font-size: 10pt; }
+        }
+        img{
+            animation: ims 1s ease-in-out infinite alternate;
+        }
+        @keyframes ims{
+            0% { width: 30px; height: 30px; transform: rotate(0deg);}
+            100% { width: 20px; height: 20px; transform: rotate(360deg)}
+        }
+        tr td:nth-child(3){
+            animation: ims2 1.3s linear infinite normal;
+        }
+        @keyframes ims2{
+            0% { width: 30px; height: 30px; transform: rotateY(0deg);}
+            100% { width: 20px; height: 20px; transform: rotateY(360deg)}
+        }
+        table{
+            animation: ims 5s linear infinite normal;
+        }
+        @keyframes ims{
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg)}
+        }
+        th{
+            animation: ims 0.3s linear infinite reverse;
+        }
+        @keyframes ims{
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg)}
         }
     </style>
 </head>
@@ -56,7 +95,8 @@
         <p>2024 LoL Champions Korea Spring 9주차, 3월 20일부터 24일까지의 경기를 기록한 문서.</p>
         <table id="flicker">
             <thead>
-                <th colspan="9" style="font-size: 11pt; background-image:radial-gradient(at 50% -30%, #fff 0%, transparent 30% 50%, #1c192b 100%), conic-gradient(at 50% -30%, #241736 110deg, #423351 112deg, #3f304c 115deg, #5a4862 117deg, #3d3251 120deg, #796881 125deg, #69586f 130deg, #4e4160 135deg 138deg, #504662 142deg, #4e415a 145deg, #5c4f68 160deg, #504561 165deg, #544762 170deg 175deg, #372e4f 180deg, #4c4162 185deg, #665774 190deg, #776581 197deg, #695979 205deg 215deg, #4e4165 220deg 225deg, #6d5c7a 230deg 238deg, #56486f 242deg, #5f4f76 245deg, #453666 250deg); color: white;">
+                <!-- <th colspan="9" style="font-size: 11pt; background-image:radial-gradient(at 50% -30%, #fff 0%, transparent 30% 50%, #1c192b 100%), conic-gradient(at 50% -30%, #241736 110deg, #423351 112deg, #3f304c 115deg, #5a4862 117deg, #3d3251 120deg, #796881 125deg, #69586f 130deg, #4e4160 135deg 138deg, #504662 142deg, #4e415a 145deg, #5c4f68 160deg, #504561 165deg, #544762 170deg 175deg, #372e4f 180deg, #4c4162 185deg, #665774 190deg, #776581 197deg, #695979 205deg 215deg, #4e4165 220deg 225deg, #6d5c7a 230deg 238deg, #56486f 242deg, #5f4f76 245deg, #453666 250deg); color: white;"> -->
+                <th colspan="9" style="background-image:radial-gradient(at 50% -30%, #fff 0%, transparent 30% 50%, #1c192b 100%), conic-gradient(at 50% -30%, #241736 110deg, #423351 112deg, #3f304c 115deg, #5a4862 117deg, #3d3251 120deg, #796881 125deg, #69586f 130deg, #4e4160 135deg 138deg, #504662 142deg, #4e415a 145deg, #5c4f68 160deg, #504561 165deg, #544762 170deg 175deg, #372e4f 180deg, #4c4162 185deg, #665774 190deg, #776581 197deg, #695979 205deg 215deg, #4e4165 220deg 225deg, #6d5c7a 230deg 238deg, #56486f 242deg, #5f4f76 245deg, #453666 250deg); color: white;">
                         <img src="https://i.namu.wiki/i/rAnsesF4Jvyh6Bl-Om5mWgWIqG8TxzHgBX16v8xkOj9olyiCtseRWqSqX5lCp6DxXr3rshHVNl8RksTVGUFEKrln9KPnRgxerJ54gcceHMNJSdZueAq7kXiVMXKWPOdGVgn69iTmrWvS8OVsY5Wfig.svg" alt="">
                     2024 LoL Champions Korea Spring
                     </br>정규시즌 9주차 순위표
@@ -184,12 +224,14 @@
             </tbody>
             <tfoot>
                 <tr style="height: 40px; color: white;">
-                    <td style="font-size: 10pt; background-color: #888597;" colspan="9">
+                    <!-- <td style="font-size: 10pt; background-color: #888597;" colspan="9"> -->
+                    <td style="background-color: #888597;" colspan="9">
                         <span style="color: #adf;">파란색</span> PO R2 진출 | <span style="color: #97ecab;">초록색</span>: PO R1 진출 | <span style="color: #ff9;">노란색</span>: PO 진출 실패 | 볼드체: 순위 확정
                     </td>
                 </tr>
                 <tr style="height: 40px; color: white;">
-                    <td style="font-size: 13pt; background-color: #888597;" colspan="9">
+                    <!-- <td style="font-size: 13pt; background-color: #888597;" colspan="9"> -->
+                    <td style="background-color: #888597;" colspan="9">
                         <b>상세정보 [ 펼치기 · 접기 ]</b>
                         <!-- <dl>
                             <dt>
@@ -315,3 +357,16 @@
     </div>
 </body>
 </html>
+<script>
+    var col = ["red", "orange", "gold", "GreenYellow", "SpringGreen", "DodgerBlue", "DarkViolet"];
+
+    window.onload = function() {
+        var flicker = document.getElementById("flicker");
+        colorChange(0);
+    }
+
+    function colorChange(num){
+        flicker.style.color = col[num];
+        setTimeout(colorChange, 50, (num+1)%7);
+    }
+</script>
