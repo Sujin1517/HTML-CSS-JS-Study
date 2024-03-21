@@ -5,12 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hello</title>
 </head>
-<body style="color:red">
-    <h1>집에가고싶다아ㅣ아아아아아ㄱ</h1>
-    <h2>집집</h2>
-    <h3>집집집</h3>
-    <h4>집4</h4>
-    <h5>다섯개</h5>
-    <h6>작아진다</h6>
+<body id="flicker" style="font-family: Gulim;">
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/MZqiCfqHYcs?si=ueCvK5KxbJTbbMhc" 
+        title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+    </iframe>
+    <a href="https://bongo.cat/">
+        <img
+        src="https://media.tenor.com/fYg91qBpDdgAAAAi/bongo-cat-transparent.gif"
+        alt="떼껄룩">
+    </a>
+    <!-- <p><iframe width="600" height="250" src="./index.html"></iframe></p> -->
+    <div>
+        <h1><a id="link" style="text-decoration-line: none;" href="./me.html">집에가고싶다아ㅣ아아아아아ㄱ</a></h1>
+        <h2>집집</h2>
+        <h3>집집집</h3>
+        <h4>집4</h4>
+        <h5>다섯개</h5>
+        <h6>작아진다</h6>
+    </div>
+    <br>
+    <div>
+    <h1>섯다</h1>
+    <h2>룰</h2>
+    <p>와 도박!</p>
+    <h2>카드수</h2>
+    <p>화투패에서 11월, 12월, 피를 제외한 20장을 사용한다.</p>
+    <h2>특수족보</h2>
+    <pre>망통은 무조건 <b>진다</b>
+<em>암행어사는</em> 13, 18장땡을 <strong>잡는다</strong></pre>
+    </div>
+    
 </body>
 </html>
+
+<script>
+    var col = ["red", "orange", "gold", "GreenYellow", "SpringGreen", "DodgerBlue", "DarkViolet"];
+
+    window.onload = function() {
+        var flicker = document.getElementById("flicker");
+        var link = document.getElementById("link");
+        colorChange(0);
+    }
+
+    function colorChange(num){
+        flicker.style.color = col[num];
+        link.style.color = col[num];
+        setTimeout(colorChange, 60, (num+1)%7);
+    }
+</script>

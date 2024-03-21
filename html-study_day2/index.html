@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <div class="box" style="background-color: black;"></div>
+    <div id="box">
+        <div id="box"></div>
+        <p>asdfasdfasdf</p>
+    </div>
+    <div style="background-color: red;">
+        <div style="background-color: orange;">
+            <div style="background-color: gold;">
+                <div style="background-color: GreenYellow;">
+                    <div style="background-color: SpringGreen;">
+                        <div style="background-color: DodgerBlue;">
+                            <div style="background-color: DarkViolet;">
+                                <div style="background-color: white;">
+        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 100px; border: 1px solid black;">
+        <div id="flicker" style="width: 200px; height: 200px; 
+        background-color: aqua; color: red;
+        margin: 50px;
+        overflow: scroll;
+        border: 2px solid black;">
+            <p>무</p><p>지</p><p>개</p><p>빛</p><p>☆</p><p>총</p>
+            <p>공</p><p>격</p><p>이</p><p>다</p><p>!!!</p>
+            <p><a href="https://www.naver.com" style="color: red;">naver</a></p>
+        </div>
+        <div style="width: 400px; height: 400px; background-color: coral; text-align: center;">
+            <p>qwer</p>
+        </div>
+        <div>asd</div>
+    </div>
+  </body>
+</html>
+<script>
+    var col = ["red", "orange", "gold", "GreenYellow", "SpringGreen", "DodgerBlue", "DarkViolet"];
+
+    window.onload = function() {
+        var flicker = document.getElementById("flicker");
+        colorChange(0);
+    }
+
+    function colorChange(num){
+        flicker.style.color = col[num];
+        setTimeout(colorChange, 60, (num+1)%7);
+    }
+</script>

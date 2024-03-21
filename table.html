@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: 2px solid black;
+        }
+        th, td{
+            border: 1px solid black;
+        }
+        td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table id="flicker">
+        <thead>
+            <th>연변</th>
+            <th colspan="2">훈련생명</th>
+            <th>상태</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td></td>
+                <td>부자</td>
+                <td>훈련중</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td></td>
+                <td>김세현</td>
+                <td>훈련중</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td></td>
+                <td>김재민</td>
+                <td>쉬는중</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>이미지</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+<script>
+    var col = ["red", "orange", "gold", "GreenYellow", "SpringGreen", "DodgerBlue", "DarkViolet"];
+
+    window.onload = function() {
+        var flicker = document.getElementById("flicker");
+        colorChange(0);
+    }
+
+    function colorChange(num){
+        flicker.style.border = "2px solid " + col[num];
+        setTimeout(colorChange, 60, (num+1)%7);
+    }
+</script>
