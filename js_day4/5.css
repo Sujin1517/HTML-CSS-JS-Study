@@ -1,0 +1,50 @@
+#divTable{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#divTable .row:nth-child(1){
+    border-top: 1px solid rgb(233, 233, 233);
+    background-color: rgb(242, 247, 248);
+    font-size: 10pt;
+    color: grey;
+    padding: 0px;
+}
+
+.row{
+    border-top: 1px solid rgb(233, 233, 233);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.col, .row div{
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.name, #divTable div div:nth-child(2){
+    text-align: left;
+    width: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex: 1 1 300px;
+}
+
+.col:nth-child(1) {
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 20pt;
+}
+
+.img{
+    width: 45px;
+    height: 45px;
+}
