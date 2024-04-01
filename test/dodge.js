@@ -93,16 +93,70 @@ const drawPlayer = () => {
 // 안만듦
 const drawObject = () => {
     enemyObjects.forEach(e => {
-        c.beginPath();
         c.fillStyle = e.color;
+        c.lineWidth = 2;
         c.strokeStyle = e.color;
-        c.lineWidth = 2.5;
-        c.arc(e.xPos, e.yPos, 5, 0, 2*Math.PI);
-        c.stroke();
+        c.beginPath();
+        const x = e.xPos;
+        const y = e.yPos;
+        const r = e.rotation;
+        switch (e.type) {
+            case 0:
+                c.arc(x, y, 5, 0, 2*Math.PI);
+                c.arc(x, y, 12, 0, 2*Math.PI);
+                c.stroke();
+                c.fillRect(x-1,y-12,2,6);
+                c.fillRect(x-1,y+6,2,6);
+                c.fillRect(x-12,y-1,6,2);
+                c.fillRect(x+6,y-1,6,2);
+                break;
+
+            case 1:
+                c.moveTo(x, y+11);
+                c.lineTo(x-11, y);
+                c.lineTo(x, y-11);
+                c.lineTo(x+11, y);
+                c.lineTo(x, y+11);
+                c.moveTo(x, y+4);
+                c.lineTo(x-4, y);
+                c.lineTo(x, y-4);
+                c.lineTo(x+4, y);
+                c.lineTo(x, y+4);
+                c.stroke();
+                break;
+
+            case 2:
+                c.arc(x, y, 10, 0, 2*Math.PI);
+                c.stroke();
+                c.closePath();
+                c.beginPath();
+                c.moveTo(x, y+7);
+                c.lineTo(x-7, y);
+                c.lineTo(x, y-7);
+                c.lineTo(x+7, y);
+                c.lineTo(x, y+7);
+                c.fill();
+                break;
+
+            case 3:
+                c.arc(x, y, 12, 0, 2*Math.PI);
+                c.moveTo(x-1,y);
+                c.arc(x-5, y, 4, 0, 2*Math.PI);
+                c.moveTo(x+4,y-5);
+                c.arc(x, y-5, 4, 0, 2*Math.PI);
+                c.moveTo(x+9,y);
+                c.arc(x+5, y, 4, 0, 2*Math.PI);
+                c.moveTo(x+4,y+5);
+                c.arc(x, y+5, 4, 0, 2*Math.PI);
+                c.stroke();
+                break;
+            
+            default:
+                console.log("Error: undefined enemy object type.");
+        }
         c.closePath();
     });
 }
-// line 타입 각도영향받게 수정해야함
 const drawProjectile = () => {
     projectiles.forEach(e => {
         c.fillStyle = e.color;
@@ -113,41 +167,41 @@ const drawProjectile = () => {
         const r = e.rotation;
         switch (e.type) {
             case "flat":
-                c.arc(e.xPos, e.yPos, 4, 0, 2*Math.PI);
+                c.arc(x, y, 5, 0, 2*Math.PI);
                 c.fill();
                 break;
             
             case "ring":
                 c.lineWidth = 2;
-                c.arc(e.xPos, e.yPos, 6, 0, 2*Math.PI);
+                c.arc(x, y, 6, 0, 2*Math.PI);
                 c.stroke();
                 break;
             
             case "line":
-                c.moveTo(x+Math.cos((r+150)%360/180*Math.PI)*7, y+Math.sin((r+150)%360/180*Math.PI)*7);
-                c.lineTo(x+Math.cos((r+30)%360/180*Math.PI)*7, y+Math.sin((r+30)%360/180*Math.PI)*7);
-                c.lineTo(x+Math.cos((r+330)%360/180*Math.PI)*7, y+Math.sin((r+330)%360/180*Math.PI)*7);
-                c.lineTo(x+Math.cos((r+210)%360/180*Math.PI)*7, y+Math.sin((r+210)%360/180*Math.PI)*7);
-                c.lineTo(x+Math.cos((r+150)%360/180*Math.PI)*7, y+Math.sin((r+150)%360/180*Math.PI)*7);
+                c.moveTo(x+Math.cos((r+150)%360/180*Math.PI)*6, y+Math.sin((r+150)%360/180*Math.PI)*6);
+                c.lineTo(x+Math.cos((r+30)%360/180*Math.PI)*6, y+Math.sin((r+30)%360/180*Math.PI)*6);
+                c.lineTo(x+Math.cos((r+330)%360/180*Math.PI)*6, y+Math.sin((r+330)%360/180*Math.PI)*6);
+                c.lineTo(x+Math.cos((r+210)%360/180*Math.PI)*6, y+Math.sin((r+210)%360/180*Math.PI)*6);
+                c.lineTo(x+Math.cos((r+150)%360/180*Math.PI)*6, y+Math.sin((r+150)%360/180*Math.PI)*6);
                 c.fill();
                 break;
 
 
             case "square":
-                c.moveTo(x+Math.cos((r+0)%360/180*Math.PI)*5, y+Math.sin((r+0)%360/180*Math.PI)*5);
-                c.lineTo(x+Math.cos((r+90)%360/180*Math.PI)*5, y+Math.sin((r+90)%360/180*Math.PI)*5);
-                c.lineTo(x+Math.cos((r+180)%360/180*Math.PI)*5, y+Math.sin((r+180)%360/180*Math.PI)*5);
-                c.lineTo(x+Math.cos((r+270)%360/180*Math.PI)*5, y+Math.sin((r+270)%360/180*Math.PI)*5);
-                c.lineTo(x+Math.cos((r+0)%360/180*Math.PI)*5, y+Math.sin((r+0)%360/180*Math.PI)*5);
+                c.moveTo(x+Math.cos((r+45)%360/180*Math.PI)*7, y+Math.sin((r+45)%360/180*Math.PI)*7);
+                c.lineTo(x+Math.cos((r+135)%360/180*Math.PI)*7, y+Math.sin((r+135)%360/180*Math.PI)*7);
+                c.lineTo(x+Math.cos((r+225)%360/180*Math.PI)*7, y+Math.sin((r+225)%360/180*Math.PI)*7);
+                c.lineTo(x+Math.cos((r+315)%360/180*Math.PI)*7, y+Math.sin((r+315)%360/180*Math.PI)*7);
+                c.lineTo(x+Math.cos((r+45)%360/180*Math.PI)*7, y+Math.sin((r+45)%360/180*Math.PI)*7);
                 c.fill();
                 break;
 
             case "diamond":
-                c.moveTo(e.xPos-5, e.yPos);
-                c.lineTo(e.xPos, e.yPos-5);
-                c.lineTo(e.xPos+5, e.yPos);
-                c.lineTo(e.xPos, e.yPos+5);
-                c.lineTo(e.xPos-5, e.yPos);
+                c.moveTo(x-6.5, y);
+                c.lineTo(x, y-6.5);
+                c.lineTo(x+6.5, y);
+                c.lineTo(x, y+6.5);
+                c.lineTo(x-6.5, y);
                 c.fill();
                 break;
 
@@ -177,7 +231,7 @@ const getDist = (x1,y1,x2,y2) => {
 }
 const hitCheck = (px,py) => {
     // if(px > xPos-4 && px < xPos+4 && py > yPos-4 && py < yPos+4){
-    if(getDist(px,py,xPos,yPos) < 7){
+    if(getDist(px,py,xPos,yPos) < 8){
         state = 0;
         alert("기록\n" + (timer/1000) + "초")
     }
@@ -219,13 +273,13 @@ const playerMove = () => {
 //// 발사하는 오브젝트 업데이트 ////
 const createEnemy = () => {
     const shotNumByType = [
-        3, 3, 10, 3
+        6, 6, 15, 4
     ];
     const shotDelayByType = [
-        700, 800, 300, 1200
+        1100, 800, 300, 1500
     ];
     const objectColorByType = [
-        "#00f", "#ff0", "#0ff", "#f80"
+        "#00f", "#ff0", "#f0f", "#0f0"
     ];
     const enemyType = Math.floor(Math.random()*shotNumByType.length);
     let x = 0;
@@ -255,7 +309,7 @@ const createEnemy = () => {
     }
     enemyObjects.push(enemy);
     
-    createDelay *= 0.97;
+    createDelay *= 0.90;
     console.log("Log: create enemy object. type:" + enemyType + ". now delay value is:" + Math.round(createDelay*1000)/1000);
     if (state == 1) setTimeout(createEnemy, baseCreateDelay*createDelay);
 }
@@ -274,7 +328,7 @@ const enemyObjectsShot = () => {
     // enemy array          { type, color, xPos, yPos, rotation, speed, shotNum, shotDelay, timeCount }
     // createProjectile     (x=-1,y=-1,r=0, s=3, pjcolor="#f00", pjtype="flat")
     const pjSpeedbyEnemyType = [
-        6, 5, 4, 2.5
+        6, 4, 4.5, 2.5
     ];
     const pjTypebyEnemyType = [
         "line", "square", "diamond", "ring"
@@ -288,11 +342,13 @@ const enemyObjectsShot = () => {
                 }
                 createProjectileTemp(3, e.rotation);
             } else if (e.type == 1) {
-                createProjectile(e.xPos, e.yPos, (e.rotation-4+360)%360, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
-                createProjectile(e.xPos, e.yPos, (e.rotation-2+360)%360, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
+                createProjectile(e.xPos, e.yPos, (e.rotation-9+360)%360, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
+                createProjectile(e.xPos, e.yPos, (e.rotation-6+360)%360, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
+                createProjectile(e.xPos, e.yPos, (e.rotation-3+360)%360, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
                 createProjectile(e.xPos, e.yPos, e.rotation, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
-                createProjectile(e.xPos, e.yPos, (e.rotation+2)%360, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
-                createProjectile(e.xPos, e.yPos, (e.rotation+4)%360, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
+                createProjectile(e.xPos, e.yPos, (e.rotation+3)%360, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
+                createProjectile(e.xPos, e.yPos, (e.rotation+6)%360, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
+                createProjectile(e.xPos, e.yPos, (e.rotation+9)%360, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
             } else if (e.type == 3) {
                 createProjectile(e.xPos, e.yPos, (e.rotation-50+360)%360, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
                 createProjectile(e.xPos, e.yPos, (e.rotation-25+360)%360, pjSpeedbyEnemyType[e.type], e.color, pjTypebyEnemyType[e.type], false);
@@ -351,7 +407,7 @@ const createProjectile = (x=-1,y=-1,r=0, s=3, pjcolor="#f00", pjtype="flat", hom
 }
 const createHomingProjectile = () => {
     createProjectile();
-    if (state == 1) setTimeout(createHomingProjectile, 2000);
+    if (state == 1) setTimeout(createHomingProjectile, 2000*createDelay);
 }
 
 const drawUpdate = () => {
