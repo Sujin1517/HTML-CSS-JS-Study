@@ -1,0 +1,22 @@
+
+.box1 p, .box3 p{
+    height: 120vh;
+}
+.box2, .show{
+    border: 1px solid black;
+    background-color: aquamarine;
+    width: 200px;
+    height: 50vh;
+}
+.up{
+    position:fixed;
+    top: 90vh;
+    left: 90vw;
+    right: 0;
+}
+.show{
+    transition: all 3s;
+    background-color: rgb(255, 255, 255);
+    transform: rotateY(780deg);
+    filter: opacity(0);
+}

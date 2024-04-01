@@ -1,0 +1,32 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+table, th, td{
+  border-top:1px solid rgb(222, 222, 222);
+  border-spacing: 0px;
+}
+
+th{
+  background-color: rgb(242, 247, 248);
+  width: 80px;
+  height: 36px;
+  font-weight: 400;
+  font-size: 10pt;
+  color: grey;
+  padding: 0px;
+}
+
+th:nth-child(2), td:nth-child(2){
+  width: 200px;
+  text-align: left;
+}
+
+td:nth-child(1){
+  font-weight: bold;
+  font-size: 20pt;
+  height: 54px;
+}
